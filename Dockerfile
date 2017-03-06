@@ -2,6 +2,11 @@ FROM jamesmontalvo3/meza-docker-base:latest
 MAINTAINER James Montalvo
 ENV container=docker
 
+# Install packages from getmeza.sh
+RUN yum -y install \
+    git \
+    ansible
+
 # Install packages from meza base role
 RUN yum -y install \
     ntp \
@@ -12,8 +17,6 @@ RUN yum -y install \
     vim \
     net-tools \
     firewalld \
-    selinux-policy \
-    rsyslog \
     jq
 
 # Install packages from base-extras role
